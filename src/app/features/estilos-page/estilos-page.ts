@@ -1,6 +1,8 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { SignalBoxComponent } from '../signal-box/signal-box';
 
+
+// ... otros imports ...
 @Component({
   selector: 'app-estilos-page',
   standalone: true,
