@@ -11,8 +11,8 @@
 
   <!-- Tabla de personajes -->
   @if (simpsonsResource()) {
-  <div class="overflow-x-auto">
-    <table class="table">
+  <div class="w-full overflow-x-auto">
+    <table class="table-fixed table w-full">
       <thead>
         <tr>
           <th>ID</th>
@@ -24,7 +24,7 @@
       </thead>
       <tbody>
         @for (personaje of simpsonsResource()?.results ?? []; track personaje.id) {
-        <tr>
+        <tr class="row-hover">
           <td>{{ personaje.id }}</td>
           <td>{{ personaje.name }}</td>
           <td>{{ personaje.occupation }}</td>
@@ -44,12 +44,13 @@
     </table>
   </div>
   }
+</section>
 
-  <!-- Paginación y controles -->
-@if (simpsonsResource.hasValue()) {
-  <div class="flex gap-2 items-center h-20 mb-4">
-    <!-- Select desactivado (la API de los Simpsons no permite limitar resultados) -->
-    <!--
+<!-- Paginación y controles -->
+@if (simpsonsResource()) {
+<div class="flex gap-2 items-center h-20 mb-4">
+  <!-- Select desactivado (la API de los Simpsons no permite limitar resultados) -->
+  <!--
     <select
         class="select select-bordered w-32"
         (change)="charactersPerPage.set(+selectPerPage.value)"
@@ -61,13 +62,7 @@
         <option value="100">100</option>
     </select>
     -->
-    <app-pagination
-      [pages]="simpsonsResource()?.pages ?? 0"
-      [currentPage]="paginationComponent.currentPage "
-    />
-
-    <div class="flex flex-1"></div>
-  </div>
+  <app-pagination [pages]="simpsonsResource()?.pages ?? 0" [currentPage]="paginationService.currentPage()" />
+  <div class="flex flex-1"></div>
+</div>
 }
-</section>
-

@@ -1,27 +1,42 @@
 <div class="drawer">
   <input id="my-drawer-2" type="checkbox" class="drawer-toggle" />
+
   <div class="drawer-content flex flex-col">
+
     <div class="navbar bg-base-300 w-full">
+
+      <!-- Botón móvil -->
       <div class="flex-none lg:hidden">
-        <label for="my-drawer-2" aria-label="open sidebar" class="btn btn-square btn-ghost">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-               class="inline-block h-6 w-6 stroke-current">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                  d="M4 6h16M4 12h16M4 18h16"></path>
+        <label for="my-drawer-2" class="btn btn-square btn-ghost">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="h-6 w-6 stroke-current">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
           </svg>
         </label>
       </div>
-      <div class="mx-2 flex-1 px-2 font-bold">
-        <a routerLink="/" routerLinkActive="bg-primary text-primary-content">Michelle Morocho</a>
+
+      <!-- Logo -->
+      <div class="flex-1 px-2 font-bold">
+        <a routerLink="/" class="hover:text-primary">Michelle Morocho</a>
       </div>
-      <div class="hidden flex-none lg:block">
-        <ul class="menu menu-horizontal">
-          <li ><a routerLink="/" routerLinkActive="bg-primary text-primary-content">Home</a></li>
-          <li ><a routerLink="/estilo" routerLinkActive="bg-primary text-primary-content">Estilos</a></li>
-          <li ><a routerLink="/simpson" routerLinkActive="bg-primary text-primary-content">Simpsons</a></li>
+
+      <!-- Navegación desktop -->
+      <ul class="menu menu-horizontal hidden lg:flex">
+        <li><a routerLink="/" routerLinkActive="bg-primary text-primary-content">Home</a></li>
+        <li><a routerLink="/estilo" routerLinkActive="bg-primary text-primary-content">Estilos</a></li>
+        <li><a routerLink="/simpson" routerLinkActive="bg-primary text-primary-content">Simpsons</a></li>
       </ul>
+
+      <div class="dropdown dropdown-end ml-4">
+        <select name="" id="" class="select select-bordered">
+          <option value="" (change)="toggleTheme()">☀️ Tema claro</option>
+          <option style="background-color: black; color: white;" value="" (change)="toggleTheme()">🌙 Tema obscuro
+          </option>
+        </select>
       </div>
+
     </div>
+
     <main class="p-6"></main>
+
   </div>
 </div>
